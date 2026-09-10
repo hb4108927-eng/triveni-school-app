@@ -1,1 +1,111 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Triveni Children's Academy — School App</title><style>*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#071a33,#0f3b62);color:#fff;min-height:100vh;display:grid;place-items:center;padding:24px}.card{max-width:720px;width:100%;background:rgba(255,255,255,.1);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.18);border-radius:24px;padding:36px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3)}img{width:100px;height:100px;object-fit:contain;border-radius:20px;background:#fff;padding:8px}.tag{display:inline-block;margin-top:18px;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.14);font-size:13px}.btn{display:inline-block;margin:24px 8px 10px;padding:15px 24px;border-radius:12px;background:#fff;color:#07345b;text-decoration:none;font-weight:700}.wa{background:#25D366;color:#fff}.small{opacity:.8;font-size:14px;line-height:1.6}.steps{text-align:left;max-width:500px;margin:25px auto 0;padding:20px;border-radius:16px;background:rgba(0,0,0,.16)}</style></head><body><main class="card"><img src="app-logo.png" alt="School Logo"><div class="tag">Official School App</div><h1>Triveni Children's Academy</h1><p>Nagina Road, Bijnor — 246701</p><p class="small">Download the school app for student and school updates.</p><a class="btn" href="_MConverter.eu_Triveni_Childrens_Academy_School_App_100_Students (1).apk" download>⬇ Download App</a><a class="btn wa" href="https://wa.me/919761149126">WhatsApp Admission</a><section class="steps"><b>How to install</b><ol><li>Tap <b>Download App</b>.</li><li>Open the downloaded APK.</li><li>If Android asks for permission, allow installation from this source.</li><li>Tap <b>Install</b>.</li></ol></section><p class="small">Established 2008 • Nursery to VIII</p></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a3150">
+<title>Triveni Children's Academy</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="splash">
+  <img src="assets/logo.png" alt="School Logo">
+  <h1>TRIVENI CHILDREN'S ACADEMY</h1>
+  <p>Nurturing Minds, Shaping Futures</p>
+</div>
+
+<div id="app" class="hide">
+<header>
+  <div class="brand"><img src="assets/logo.png"><div><b>TRIVENI</b><span>CHILDREN'S ACADEMY</span></div></div>
+  <div id="clock"></div>
+</header>
+
+<main>
+<section id="role" class="page">
+  <div class="welcome card">
+    <div class="badge">TCA • 2008</div>
+    <h2>School Management App</h2>
+    <p>Classes 1st to 8th</p>
+    <div class="rolegrid">
+      <button class="role" onclick="openLogin('student')"><span>🎓</span><b>Student</b><small>View your school information</small></button>
+      <button class="role" onclick="openLogin('teacher')"><span>👩‍🏫</span><b>Teacher</b><small>Manage your assigned class</small></button>
+      <button class="role adminrole" onclick="openLogin('admin')"><span>🏫</span><b>Admin</b><small>Manage the whole school</small></button>
+    </div>
+  </div>
+</section>
+
+<section id="login" class="page hide">
+  <div class="card login">
+    <button class="back" onclick="show('role')">← Back</button>
+    <h2 id="loginHeading">Login</h2>
+    <p id="loginSub">Enter your details</p>
+    <div id="studentForm" class="hide">
+      <input id="stName" placeholder="Student Name">
+      <input id="stFather" placeholder="Father Name">
+      <select id="stClass"><option value="">Select Class</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select>
+    </div>
+    <div id="teacherForm" class="hide">
+      <input id="teName" placeholder="Teacher Name">
+      <select id="teClass"><option value="">Assigned Class</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select>
+    </div>
+    <div id="adminForm" class="hide">
+      <input id="adName" placeholder="Admin Name">
+    </div>
+    <input id="uid" placeholder="User ID">
+    <input id="pass" type="password" placeholder="Password">
+    <button class="primary" onclick="doLogin()">Continue</button>
+    <div class="demo"><b>Prototype login:</b> any filled ID/password works. In the final online version, accounts will be created by Admin and securely authenticated.</div>
+  </div>
+</section>
+
+<section id="dashboard" class="page hide">
+  <div class="dash card">
+    <div><div class="eyebrow" id="roleLabel"></div><h2 id="hello"></h2><p id="sub"></p></div>
+    <button class="outline" onclick="logout()">Logout</button>
+  </div>
+  <div id="studentPanel" class="hide">
+    <div class="stats">
+      <div><b id="sp">0</b><small>Present</small></div><div><b id="sa">0</b><small>Absent</small></div><div><b id="spercent">0%</b><small>Attendance</small></div>
+    </div>
+    <div class="grid">
+      <button onclick="module('studentAttendance')">📅<b>Attendance</b><small>Daily record & percentage</small></button>
+      <button onclick="module('studentMarks')">📊<b>Test Marks</b><small>Subject-wise marks</small></button>
+      <button onclick="module('studentDate')">📝<b>Date Sheet</b><small>Exam schedule</small></button>
+      <button onclick="module('studentTime')">🕐<b>Time Table</b><small>Class periods</small></button>
+      <button onclick="module('studentProfile')">👤<b>My Profile</b><small>Your school details</small></button>
+    </div>
+  </div>
+
+  <div id="teacherPanel" class="hide">
+    <div class="notice">You can manage only your assigned class.</div>
+    <div class="grid">
+      <button onclick="module('takeAttendance')">✅<b>Daily Attendance</b><small>Mark today's attendance</small></button>
+      <button onclick="module('enterMarks')">📊<b>Test Marks</b><small>Enter/update marks</small></button>
+      <button onclick="module('manageDate')">📝<b>Date Sheet</b><small>Create/update exams</small></button>
+      <button onclick="module('manageTime')">🕐<b>Time Table</b><small>Create/update periods</small></button>
+      <button onclick="module('classStudents')">👨‍🎓<b>My Students</b><small>View class details</small></button>
+    </div>
+  </div>
+
+  <div id="adminPanel" class="hide">
+    <div class="notice">Admin controls the complete school database in this prototype.</div>
+    <div class="grid">
+      <button onclick="module('adminStudents')">👨‍🎓<b>Students</b><small>Add/manage classes 1–8</small></button>
+      <button onclick="module('adminTeachers')">👩‍🏫<b>Teachers</b><small>Create teacher accounts</small></button>
+      <button onclick="module('adminAttendance')">✅<b>Attendance Reports</b><small>Class-wise overview</small></button>
+      <button onclick="module('adminMarks')">📊<b>Marks Reports</b><small>Review test marks</small></button>
+      <button onclick="module('adminDate')">📝<b>Date Sheet</b><small>Publish exam schedule</small></button>
+      <button onclick="module('adminTime')">🕐<b>Time Table</b><small>Publish class timetable</small></button>
+    </div>
+  </div>
+</section>
+
+<section id="modulePage" class="page hide">
+ <div class="card module"><button class="back" onclick="show('dashboard')">← Dashboard</button><h2 id="moduleTitle"></h2><div id="moduleBody"></div></div>
+</section>
+</main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
